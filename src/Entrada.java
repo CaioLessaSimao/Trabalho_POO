@@ -100,4 +100,21 @@ public class Entrada {
         s.novaPessoa(p);
     }
 
+    public void cadEmpresa(Sistema s) {
+        String login = this.lerLinha("Escolha um login: ");
+
+        while (s.buscarUsuario(login) != null) {
+            login = this.lerLinha("Usuário já existente. Escolha outro login: ");
+        }
+
+        String nome = this.lerLinha("Digite o nome da empresa: ");
+        String senha = this.lerLinha("Digite sua senha: ");
+        String cnpj = this.lerLinha("Digite seu cnpj: ");
+        String endereco = this.lerLinha("Digite o endereco da empresa: ");
+
+
+        Empresa emp = new Empresa(login, nome, senha, cnpj, endereco);
+        s.novaEmpresa(emp);
+    }
+
 }

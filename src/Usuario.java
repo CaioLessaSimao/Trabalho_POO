@@ -10,6 +10,14 @@ public class Usuario {
     protected ArrayList<Usuario> seguidores;
     protected ArrayList<Usuario> interessados;
 
+    public Usuario(String login, String nome, String senha){
+        this.login = login;
+        this.nome = nome;
+        this.senha = senha;
+    }
+
+
+
     public boolean validarAcesso(String pwd){
         boolean validation = this.senha.equals(pwd);
 
