@@ -77,7 +77,6 @@ public class Entrada {
         return op;
     }
 
-    /***************************************************/
 
     /**
      * Lê os dados de uma nova Pessoa e cadastra-a no sistema.
