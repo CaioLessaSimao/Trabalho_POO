@@ -15,5 +15,4 @@ public class Empresa extends Usuario{
         return ( this.nome + " ( " + this.login + " - " + this.cnpj + ")" );
     }
 
-
 }

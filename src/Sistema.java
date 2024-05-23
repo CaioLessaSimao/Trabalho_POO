@@ -27,4 +27,19 @@ public class Sistema {
     public void novaEmpresa(Empresa emp){
         this.empresas.add(emp);
     }
+
+    public void listarUsuarios(){
+
+        int i = 0;
+        System.out.println("Listando empresas:");
+        for (Empresa e: this.empresas){
+            System.out.println(i + ": " + e.toString());
+            i++;
+        }
+
+        System.out.println("Listando pessoas");
+        for (Pessoa p: this.pessoas){
+            System.out.println(i + ": " + p.toString());
+        }
+    }
 }

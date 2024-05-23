@@ -10,8 +10,7 @@ public class Pessoa extends Usuario{
         this.nome = nome;
         this.senha = senha;
         this.login = login;
-        Data d = new Data(dia,mes,ano);
-        this.dtNasc = d;
+        this.dtNasc = new Data(dia,mes,ano);
     }
 
     public String toString(){

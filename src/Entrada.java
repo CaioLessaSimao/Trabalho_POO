@@ -1,5 +1,6 @@
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.sql.SQLOutput;
 import java.util.Scanner;
 
 public class Entrada {
@@ -77,6 +78,24 @@ public class Entrada {
         return op;
     }
 
+    public int menu2(Sistema s, Usuario u){
+
+        String msg = "*********************\n" +
+                "Escolha uma opção:\n" +
+                "1) Seguir Usuário.\n" +
+                "2) Fazer postagem.\n" +
+                "3) Exibir feed.\n" +
+                "0) Sair.\n";
+
+        int op = this.lerInteiro(msg);
+
+        while (op < 0 || op > 3) {
+            System.out.println("Opção inválida. Tente novamente: ");
+            op = this.lerInteiro(msg);
+        }
+
+        return op;
+    }
 
     /**
      * Lê os dados de uma nova Pessoa e cadastra-a no sistema.
@@ -117,4 +136,53 @@ public class Entrada {
         s.novaEmpresa(emp);
     }
 
+    public void cadPostagem(Sistema s, Usuario u){
+        String nomeFoto,legenda,senha;
+        int dia, mes, ano;
+
+        nomeFoto = lerLinha("Digite o nome da foto: ");
+        legenda = lerLinha("Digite a legenda do post: ");
+        senha = lerLinha("Digite sua senha: ");
+        dia = lerInteiro("Digite o dia: ");
+        mes = lerInteiro("Digite o mes: ");
+        ano = lerInteiro("Digite o ano: ");
+
+        u.postar(nomeFoto,legenda, new Data(dia, mes, ano), senha);
+
+
+    }
+
+
+    private void executarMenu2(Sistema s, Usuario u, int op){
+        switch (op){
+            case 1:
+                s.listarUsuarios();
+                int escolhido = this.lerInteiro("Digite o número do usuário que quer seguir: ");
+
+                if (escolhido > (s.empresas).size()-1 ) {
+                    Pessoa p = s.pessoas.get(escolhido);
+                    //terminar
+                    }
+                else {
+                    Empresa e = s.empresas.get(escolhido);
+                    //terminar
+                }
+        }
+    }
+
+    public void login(Sistema s){
+        String login = lerLinha("Digite seu login: ");
+        String senha = lerLinha("Digite sua senha: ");
+
+        Usuario u = s.buscarUsuario(login);
+        if (u != null){
+            if (u.validarAcesso(senha)){
+
+                int op = this.menu2(s, u);
+                while (op != 0){
+                    op = this.menu2(s, u);
+                }
+            }
+        }
+    }
 }

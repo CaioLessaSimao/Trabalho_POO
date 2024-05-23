@@ -9,7 +9,7 @@ public class Postagem {
         this.d = hoje;
     }
 
-    public void imprimirPost(){
+    public void mostrarDados(){
         System.out.println(this.foto);
         System.out.println(this.legenda + " - " + this.d);;
     }

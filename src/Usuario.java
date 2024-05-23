@@ -44,7 +44,7 @@ public class Usuario {
     public void mostrarPosts(){
         for (Postagem p: this.postagens) {
             System.out.println(' ');
-            p.imprimirPost();
+            p.mostrarDados();
         }
     }
 
