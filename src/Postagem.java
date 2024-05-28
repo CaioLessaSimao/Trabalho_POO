@@ -11,6 +11,6 @@ public class Postagem {
 
     public void mostrarDados(){
         System.out.println(this.foto);
-        System.out.println(this.legenda + " - " + this.d);;
+        System.out.println(this.legenda + " - " + this.d.toString());;
     }
 }

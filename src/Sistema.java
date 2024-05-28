@@ -4,7 +4,10 @@ public class Sistema {
     public ArrayList<Pessoa> pessoas;
     public ArrayList<Empresa> empresas;
 
-
+    public Sistema() {
+        this.pessoas = new ArrayList<>();
+        this.empresas = new ArrayList<>();
+    }
 
     public Usuario buscarUsuario(String login){
         for(Pessoa p : this.pessoas){
@@ -40,6 +43,7 @@ public class Sistema {
         System.out.println("Listando pessoas");
         for (Pessoa p: this.pessoas){
             System.out.println(i + ": " + p.toString());
+            i++;
         }
     }
 }

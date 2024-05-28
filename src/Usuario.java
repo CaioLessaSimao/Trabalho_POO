@@ -8,12 +8,14 @@ public class Usuario {
     protected ArrayList<Postagem> postagens;
     protected ArrayList<Usuario> seguindo;
     protected ArrayList<Usuario> seguidores;
-    protected ArrayList<Usuario> interessados;
 
     public Usuario(String login, String nome, String senha){
         this.login = login;
         this.nome = nome;
         this.senha = senha;
+        this.seguindo = new ArrayList<>();
+        this.seguidores = new ArrayList<>();
+        this.postagens = new ArrayList<>();
     }
 
 

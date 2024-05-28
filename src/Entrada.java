@@ -143,13 +143,8 @@ public class Entrada {
         nomeFoto = lerLinha("Digite o nome da foto: ");
         legenda = lerLinha("Digite a legenda do post: ");
         senha = lerLinha("Digite sua senha: ");
-        dia = lerInteiro("Digite o dia: ");
-        mes = lerInteiro("Digite o mes: ");
-        ano = lerInteiro("Digite o ano: ");
 
-        u.postar(nomeFoto,legenda, new Data(dia, mes, ano), senha);
-
-
+        u.postar(nomeFoto,legenda, new Data(), senha);
     }
 
 
@@ -160,13 +155,23 @@ public class Entrada {
                 int escolhido = this.lerInteiro("Digite o número do usuário que quer seguir: ");
 
                 if (escolhido > (s.empresas).size()-1 ) {
-                    Pessoa p = s.pessoas.get(escolhido);
-                    //terminar
+                    Pessoa p = s.pessoas.get( escolhido - s.empresas.size() );
+                    u.seguir(p);
                     }
                 else {
                     Empresa e = s.empresas.get(escolhido);
-                    //terminar
+                    u.seguir(e);
                 }
+                break;
+
+            case 2:
+                this.cadPostagem(s,u);
+                break;
+
+            case 3:
+                u.feed();
+                break;
+
         }
     }
 
@@ -180,6 +185,7 @@ public class Entrada {
 
                 int op = this.menu2(s, u);
                 while (op != 0){
+                    executarMenu2(s, u, op);
                     op = this.menu2(s, u);
                 }
             }
