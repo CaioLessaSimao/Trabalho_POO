@@ -5,10 +5,10 @@ public class Empresa extends Usuario{
     private String descricao;
     private Area area;
 
-    public Empresa(String login, String nome, String senha, String cnpj, String endereco) {
+    public Empresa(String login, String nome, String senha, String cnpj) {
         super(login, nome, senha);
         this.cnpj = cnpj;
-        this.endereco = endereco;
+        this.endereco = null;
     }
 
     public String toString(){

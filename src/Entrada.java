@@ -129,10 +129,10 @@ public class Entrada {
         String nome = this.lerLinha("Digite o nome da empresa: ");
         String senha = this.lerLinha("Digite sua senha: ");
         String cnpj = this.lerLinha("Digite seu cnpj: ");
-        String endereco = this.lerLinha("Digite o endereco da empresa: ");
+        //String endereco = this.lerLinha("Digite o endereco da empresa: ");
 
 
-        Empresa emp = new Empresa(login, nome, senha, cnpj, endereco);
+        Empresa emp = new Empresa(login, nome, senha, cnpj);
         s.novaEmpresa(emp);
     }
 
@@ -142,26 +142,24 @@ public class Entrada {
 
         nomeFoto = lerLinha("Digite o nome da foto: ");
         legenda = lerLinha("Digite a legenda do post: ");
+        dia = lerInteiro("digite o dia: ");
+        mes = lerInteiro("digite o mes: ");
+        ano = lerInteiro("digite o ano: ");
         senha = lerLinha("Digite sua senha: ");
 
-        u.postar(nomeFoto,legenda, new Data(), senha);
+        u.postar(nomeFoto,legenda, new Data(dia, mes, ano), senha);
     }
 
 
     private void executarMenu2(Sistema s, Usuario u, int op){
         switch (op){
             case 1:
-                s.listarUsuarios();
-                int escolhido = this.lerInteiro("Digite o número do usuário que quer seguir: ");
-
-                if (escolhido > (s.empresas).size()-1 ) {
-                    Pessoa p = s.pessoas.get( escolhido - s.empresas.size() );
-                    u.seguir(p);
-                    }
-                else {
-                    Empresa e = s.empresas.get(escolhido);
-                    u.seguir(e);
+                String buscado = this.lerLinha("Digite o login do usuário que deseja seguir: ");
+                Usuario b = s.buscarUsuario(buscado);
+                if (b != null){
+                    u.seguir(b);
                 }
+
                 break;
 
             case 2:
