@@ -1,23 +1,22 @@
 public class Main {
     public static void main(String[] args) {
-
+        Entrada io = new Entrada();
         Sistema s = new Sistema();
-        Entrada e = new Entrada();
 
-        int op = e.menu1();
-        while(op != 0){
-            switch (op) {
-                case 1:
-                    e.cadPessoa(s);
-                    break;
-                case 2:
-                    e.cadEmpresa(s);
-                    break;
-                case 3:
-                    e.login(s);
-                    break;
+        int op = io.menu1();
+
+        while (op != 0) {
+            if (op == 1) {
+                io.cadPessoa(s);
             }
-            op = e.menu1();
+            if (op == 2) {
+                io.cadEmpresa(s);
+            }
+            if (op == 3) {
+                io.login(s);
+            }
+
+            op = io.menu1();
         }
     }
 }
