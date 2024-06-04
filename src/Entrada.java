@@ -154,6 +154,9 @@ public class Entrada {
     private void executarMenu2(Sistema s, Usuario u, int op){
         switch (op){
             case 1:
+
+                s.listarUsuarios();
+
                 String buscado = this.lerLinha("Digite o login do usuário que deseja seguir: ");
                 Usuario b = s.buscarUsuario(buscado);
                 if (b != null){

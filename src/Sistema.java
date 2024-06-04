@@ -33,7 +33,7 @@ public class Sistema {
 
     public void listarUsuarios(){
 
-        int i = 0;
+        int i = 1;
         System.out.println("Listando empresas:");
         for (Empresa e: this.empresas){
             System.out.println(i + ": " + e.toString());
