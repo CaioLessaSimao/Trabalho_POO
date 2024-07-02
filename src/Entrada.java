@@ -16,7 +16,14 @@ public class Entrada {
      * Se houver um arquivo input.txt, define que o Scanner vai ler deste arquivo.
      * Se o arquivo não existir, define que o Scanner vai ler da entrada padrão (teclado)
      */
-    public Entrada() {
+    public Entrada(Sistema s) {
+        try{
+            this.input = new Scanner((new FileInputStream(("dados.txt"))));
+            this.importarDados(s);
+        } catch (FileNotFoundException e) {
+            System.out.println("nao encontrou arquivos salvos");
+        }
+
         try {
             // Se houver um arquivo input.txt na pasta corrente, o Scanner vai ler dele.
             this.input = new Scanner(new FileInputStream("input.txt"));
@@ -190,6 +197,19 @@ public class Entrada {
                     op = this.menu2(s, u);
                 }
             }
+        }
+    }
+
+    private void importarDados(Sistema s){
+        String op = this.lerLinha("Digite a opção");
+
+        while( !op.equals("F") ) {
+            switch (op) {
+                case "P" -> cadPessoa(s);
+                case "E" -> cadEmpresa(s);
+                case "S" -> s.buscarUsuario(lerLinha("")).seguir(s.buscarUsuario(lerLinha("")));
+            }
+            op = this.lerLinha("");
         }
     }
 }

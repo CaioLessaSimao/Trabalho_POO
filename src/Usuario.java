@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class Usuario {
+public abstract class Usuario {
     protected String login;
     protected String nome;
     protected String senha;
@@ -17,8 +17,6 @@ public class Usuario {
         this.seguidores = new ArrayList<>();
         this.postagens = new ArrayList<>();
     }
-
-
 
     public boolean validarAcesso(String pwd){
         boolean validation = this.senha.equals(pwd);

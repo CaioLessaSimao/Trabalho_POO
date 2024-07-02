@@ -1,7 +1,7 @@
 public class Main {
     public static void main(String[] args) {
-        Entrada io = new Entrada();
         Sistema s = new Sistema();
+        Entrada io = new Entrada(s);
 
         int op = io.menu1();
 
