@@ -26,7 +26,7 @@ public class Entrada {
 
         try {
             // Se houver um arquivo input.txt na pasta corrente, o Scanner vai ler dele.
-            this.input = new Scanner(new FileInputStream("input.txt"));
+            this.input = new Scanner(new FileInputStream("inpu1t.txt"));
             // NAO ALTERE A LOCALICAÇÃO DO ARQUIVO!!
         } catch (FileNotFoundException e) {
             // Caso contrário, vai ler do teclado.
@@ -154,7 +154,7 @@ public class Entrada {
         ano = lerInteiro("digite o ano: ");
         senha = lerLinha("Digite sua senha: ");
 
-        u.postar(nomeFoto,legenda, new Data(dia, mes, ano), senha);
+        u.postar(nomeFoto,legenda, new Data(dia, mes, ano), senha, u);
     }
 
 
