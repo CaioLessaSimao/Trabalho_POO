@@ -15,9 +15,9 @@ public class Postagem implements Comparable<Postagem>{
 
     public void mostrarDados(){
         System.out.println("*");
-        System.out.printf(this.autor.nome, "(", this.autor.seguidores.size(), "seguidores)");
+        System.out.println(this.autor.nome + " (" + this.autor.seguidores.size() + " seguidores)");
         System.out.println(this.foto);
-        System.out.println(this.legenda + " - " + this.d.toString());
+        System.out.println(this.legenda);
         System.out.println(this.d.toString());
     }
 

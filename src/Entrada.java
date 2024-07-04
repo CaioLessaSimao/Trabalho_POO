@@ -26,7 +26,7 @@ public class Entrada {
 
         try {
             // Se houver um arquivo input.txt na pasta corrente, o Scanner vai ler dele.
-            this.input = new Scanner(new FileInputStream("inpu1t.txt"));
+            this.input = new Scanner(new FileInputStream("input.txt"));
             // NAO ALTERE A LOCALICAÇÃO DO ARQUIVO!!
         } catch (FileNotFoundException e) {
             // Caso contrário, vai ler do teclado.

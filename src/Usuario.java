@@ -49,10 +49,9 @@ public abstract class Usuario implements Comparable<Usuario>{
         u.seguidores.add(this);
     }
 
-    public void mostrarPosts(ArrayList<Postagem> posts){
+    public static void mostrarPosts(ArrayList<Postagem> posts){
         Collections.sort(posts);
         for (Postagem p: posts) {
-            System.out.println(' ');
             p.mostrarDados();
         }
         System.out.println("*");
@@ -62,10 +61,9 @@ public abstract class Usuario implements Comparable<Usuario>{
         ArrayList<Postagem> postsFeed = new ArrayList<>();
         for (Usuario u: this.seguindo) {
             postsFeed.addAll(u.postagens);
-
-            System.out.println(' ');
-            System.out.println("Usuario: " + u.nome);
-            u.mostrarPosts(postsFeed);
         }
+        System.out.println(' ');
+        System.out.println("Feed de " + this.nome + ":");
+        Usuario.mostrarPosts(postsFeed);
     }
 }
