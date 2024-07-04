@@ -26,7 +26,7 @@ public class Entrada {
 
         try {
             // Se houver um arquivo input.txt na pasta corrente, o Scanner vai ler dele.
-            this.input = new Scanner(new FileInputStream("input.txt"));
+            this.input = new Scanner(new FileInputStream("input1.txt"));
             // NAO ALTERE A LOCALICAÇÃO DO ARQUIVO!!
         } catch (FileNotFoundException e) {
             // Caso contrário, vai ler do teclado.
@@ -136,7 +136,6 @@ public class Entrada {
         String nome = this.lerLinha("Digite o nome da empresa: ");
         String senha = this.lerLinha("Digite sua senha: ");
         String cnpj = this.lerLinha("Digite seu cnpj: ");
-        //String endereco = this.lerLinha("Digite o endereco da empresa: ");
 
 
         Empresa emp = new Empresa(login, nome, senha, cnpj);

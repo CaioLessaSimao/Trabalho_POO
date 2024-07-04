@@ -1,7 +1,10 @@
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public abstract class Usuario implements Comparable<Usuario>{
+public abstract class Usuario implements Comparable<Usuario>, Salvavel{
     protected String login;
     protected String nome;
     protected String senha;
@@ -47,6 +50,18 @@ public abstract class Usuario implements Comparable<Usuario>{
     public void seguir(Usuario u){
         this.seguindo.add(u);
         u.seguidores.add(this);
+        try {
+            FileWriter f = new FileWriter("dados.txt", true);
+            BufferedWriter b = new BufferedWriter(f);
+            this.salvarArq(b);
+            b.write(u.login);
+            b.write("\n");
+            b.close();
+        }
+        catch (IOException e){
+            System.out.println("Erro ao salvar os dados");
+        }
+
     }
 
     public static void mostrarPosts(ArrayList<Postagem> posts){
@@ -65,5 +80,17 @@ public abstract class Usuario implements Comparable<Usuario>{
         System.out.println(' ');
         System.out.println("Feed de " + this.nome + ":");
         Usuario.mostrarPosts(postsFeed);
+    }
+
+    public void salvarArq(BufferedWriter b) {
+        try {
+            b.write("S");
+            b.write("\n");
+            b.write(this.login);
+            b.write("\n");
+        }
+        catch (IOException e){
+            System.out.println("Erro ao salvar os dados");
+        }
     }
 }

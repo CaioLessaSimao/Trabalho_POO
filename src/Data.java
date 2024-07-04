@@ -22,4 +22,16 @@ public class Data implements Comparable<Data> {
         if (this.dia > o.dia) return 1;
         return 0;
     }
+
+    public int getDia() {
+        return dia;
+    }
+
+    public int getMes() {
+        return mes;
+    }
+
+    public int getAno() {
+        return ano;
+    }
 }

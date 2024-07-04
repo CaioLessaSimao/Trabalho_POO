@@ -1,4 +1,9 @@
-public class Empresa extends Usuario{
+import javax.imageio.IIOException;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+
+public class Empresa extends Usuario implements Salvavel{
     private String cnpj;
     private String endereco;
     private String site;
@@ -9,6 +14,34 @@ public class Empresa extends Usuario{
         super(login, nome, senha);
         this.cnpj = cnpj;
         this.endereco = null;
+        try {
+            FileWriter f = new FileWriter("dados.txt", true);
+            BufferedWriter b = new BufferedWriter(f);
+            this.salvarArq(b);
+            b.close();
+        }
+        catch (IOException e){
+            System.out.println("Erro ao salvar os dados");
+        }
+    }
+
+    @Override
+    public void salvarArq(BufferedWriter b) {
+        try {
+            b.write("P");
+            b.write("\n");
+            b.write(this.login);
+            b.write("\n");
+            b.write(this.nome);
+            b.write("\n");
+            b.write(this.senha);
+            b.write("\n");
+            b.write(this.cnpj);
+            b.write("\n");
+        }
+        catch (IOException e){
+            System.out.println("Erro ao salvar os dados");
+        }
     }
 
     public String toString(){

@@ -1,3 +1,7 @@
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+
 public class Main {
     public static void main(String[] args) {
         Sistema s = new Sistema();
@@ -17,6 +21,16 @@ public class Main {
             }
 
             op = io.menu1();
+        }
+        try {
+            FileWriter f = new FileWriter("dados.txt", true);
+            BufferedWriter b = new BufferedWriter(f);
+            b.write("\n");
+            b.write("F");
+            b.write("\n");
+        }
+        catch (IOException e){
+            System.out.println("Erro ao salvar os dados");
         }
     }
 }
