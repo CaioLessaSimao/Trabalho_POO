@@ -84,10 +84,8 @@ public abstract class Usuario implements Comparable<Usuario>, Salvavel{
 
     public void salvarArq(BufferedWriter b) {
         try {
-            b.write("S");
-            b.write("\n");
-            b.write(this.login);
-            b.write("\n");
+            b.write("S"+"\n");
+            b.write(this.login+"\n");
         }
         catch (IOException e){
             System.out.println("Erro ao salvar os dados");

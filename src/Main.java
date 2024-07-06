@@ -25,9 +25,8 @@ public class Main {
         try {
             FileWriter f = new FileWriter("dados.txt", true);
             BufferedWriter b = new BufferedWriter(f);
-            b.write("\n");
-            b.write("F");
-            b.write("\n");
+            b.write("F"+"\n"+"\n");
+            b.close();
         }
         catch (IOException e){
             System.out.println("Erro ao salvar os dados");

@@ -32,22 +32,14 @@ public class Pessoa extends Usuario implements Salvavel{
 
     public void salvarArq(BufferedWriter b) {
         try {
-            b.write("P");
-            b.write("\n");
-            b.write(this.login);
-            b.write("\n");
-            b.write(this.nome);
-            b.write("\n");
-            b.write(this.senha);
-            b.write("\n");
-            b.write(this.cpf);
-            b.write("\n");
-            b.write(this.dtNasc.getDia());
-            b.write("\n");
-            b.write(this.dtNasc.getMes());
-            b.write("\n");
-            b.write(this.dtNasc.getAno());
-            b.write("\n");
+            b.write("P"+"\n");
+            b.write(this.login+"\n");
+            b.write(this.nome+"\n");
+            b.write(this.senha+"\n");
+            b.write(this.cpf+"\n");
+            b.write(this.dtNasc.getDia()+"\n");
+            b.write(this.dtNasc.getMes()+"\n");
+            b.write(this.dtNasc.getAno()+"\n");
         }
         catch (IOException e){
             System.out.println("Erro ao salvar os dados");

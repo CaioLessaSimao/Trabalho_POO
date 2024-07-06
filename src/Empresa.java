@@ -28,16 +28,11 @@ public class Empresa extends Usuario implements Salvavel{
     @Override
     public void salvarArq(BufferedWriter b) {
         try {
-            b.write("P");
-            b.write("\n");
-            b.write(this.login);
-            b.write("\n");
-            b.write(this.nome);
-            b.write("\n");
-            b.write(this.senha);
-            b.write("\n");
-            b.write(this.cnpj);
-            b.write("\n");
+            b.write("P"+"\n");
+            b.write(this.login+"\n");
+            b.write(this.nome+"\n");
+            b.write(this.senha+"\n");
+            b.write(this.cnpj+"\n");
         }
         catch (IOException e){
             System.out.println("Erro ao salvar os dados");
