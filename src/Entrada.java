@@ -25,7 +25,7 @@ public class Entrada {
 
         try {
             // Se houver um arquivo input.txt na pasta corrente, o Scanner vai ler dele.
-            this.input = new Scanner(new FileInputStream("input1.txt"));
+            this.input = new Scanner(new FileInputStream("input2.txt"));
             // NAO ALTERE A LOCALICAÇÃO DO ARQUIVO!!
         } catch (FileNotFoundException e) {
             // Caso contrário, vai ler do teclado.
@@ -55,9 +55,20 @@ public class Entrada {
      * @return O número digitado pelo usuário convertido para int
      */
     private int lerInteiro(String msg) {
-        // Imprime uma mensagem ao usuário, lê uma linha contendo um inteiro e retorna este inteiro
-        String linha = this.lerLinha(msg);
-        return Integer.parseInt(linha);
+        int resultado = 0;
+        boolean controle = true;
+
+        while (controle) {
+            try {
+                String linha = this.lerLinha(msg);
+                resultado = Integer.parseInt(linha);
+                controle = false;
+            } catch (NumberFormatException e) {
+                System.out.println("Entrada inválida. Por favor, insira um número inteiro.");
+            }
+        }
+
+        return resultado;
     }
 
     /**
@@ -65,8 +76,6 @@ public class Entrada {
      * @return Inteiro contendo a opção escolhida pelo usuário
      */
     public int menu1() {
-        // Imprime o menu principal, lê a opção escolhida pelo usuário e retorna a opção selecionada.
-
         String msg = "*********************\n" +
                 "Escolha uma opção:\n" +
                 "1) Cadastrar pessoa.\n" +
@@ -85,7 +94,6 @@ public class Entrada {
     }
 
     public int menu2(Sistema s, Usuario u){
-
         String msg = "*********************\n" +
                 "Escolha uma opção:\n" +
                 "1) Seguir Usuário.\n" +
@@ -195,6 +203,7 @@ public class Entrada {
                 }
             }
         }
+        else System.out.println("Login não encontrado");
     }
 
     private void importarDados(Sistema s){
