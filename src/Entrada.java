@@ -1,5 +1,4 @@
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
+import java.io.*;
 import java.sql.SQLOutput;
 import java.util.Scanner;
 
@@ -160,7 +159,6 @@ public class Entrada {
     private void executarMenu2(Sistema s, Usuario u, int op){
         switch (op){
             case 1:
-
                 s.listarUsuarios();
 
                 String buscado = this.lerLinha("Digite o login do usuário que deseja seguir: ");
@@ -210,5 +208,6 @@ public class Entrada {
             }
             op = this.lerLinha("");
         }
+
     }
 }

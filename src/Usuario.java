@@ -50,18 +50,6 @@ public abstract class Usuario implements Comparable<Usuario>, Salvavel{
     public void seguir(Usuario u){
         this.seguindo.add(u);
         u.seguidores.add(this);
-        try {
-            FileWriter f = new FileWriter("dados.txt", true);
-            BufferedWriter b = new BufferedWriter(f);
-            this.salvarArq(b);
-            b.write(u.login);
-            b.write("\n");
-            b.close();
-        }
-        catch (IOException e){
-            System.out.println("Erro ao salvar os dados");
-        }
-
     }
 
     public static void mostrarPosts(ArrayList<Postagem> posts){

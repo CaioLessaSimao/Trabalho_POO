@@ -22,10 +22,12 @@ public class Main {
 
             op = io.menu1();
         }
+
         try {
-            FileWriter f = new FileWriter("dados.txt", true);
+            FileWriter f = new FileWriter("dados.txt");
             BufferedWriter b = new BufferedWriter(f);
-            b.write("F"+"\n"+"\n");
+            s.salvar(b);
+            b.write("F"+"\n");
             b.close();
         }
         catch (IOException e){
